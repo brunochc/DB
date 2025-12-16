@@ -1,0 +1,23 @@
+Welcome to this lesson on OCI Compartments. Compartments are a unique feature within OCI. And these are really powerful, so let's explore.
+
+So what is a compartment? When you open an account in OCI, you get a tenancy. That's another fancy name for an account. And we also give you a Root Compartment. So think of Root Compartment as this logical construct where you can keep all of your cloud resources. And then what you could do is, you could create your own individual compartments, like you see here.
+
+There is a network compartment. There's a storage compartment. And the idea is, you create these for isolation and controlling access. And you could keep a collection of related resources in specific compartments. So the network resource has-- a network compartment has network resources, and storage compartment has storage resources.
+
+Now, keep in mind, Root Compartment, as I said earlier, can hold all of the cloud resources. So it can be sort of a kitchen sink. You could put everything in there. But the best practice is to create dedicated compartments to isolate resources. You will see why. Let me just explain.
+
+So first thing is, each resource you create belongs to a single compartment. So you create a virtual machine, for example. It goes to Compartment A. It cannot go to Compartment B. Again, you have to move it from Compartment A, or delete, and recreate in Compartment B. Keep in mind, each resource belongs to a single compartment.
+
+The reason why you want to compartmentalize your resources is exactly shown on this slide. Why you use compartments in the first place is for controlling access and isolation. So the way you do that is, you have the resources, let's say in this case a block storage, kept in Compartment A. You don't want those to be used by everyone. You want those to be used only by the compute admins and storage admins.
+
+So you create those admins as users and groups, write these policies, and they can access these resources in this compartment. So it's very important. Do not put all of your resources in the Root Compartment. Create resource-specific compartments, or whichever way you want to divide your tenancies, and put resources accordingly.
+
+Now, how do resources interact if they are in different compartments? Do they all have to be in the same compartment? Absolutely not. As you can see here, resources in one compartment can interact with the resource in another compartment. Here, the Virtual Cloud Network is-- the compute instance uses the Virtual Cloud Network, but these are in two different compartments. So this is absolutely supported. And it keeps your design much cleaner.
+
+Keep in mind that resources can also be moved from one compartment to another. So in this example, Compartment A had a virtual machine. We can move that from Compartment A to Compartment B. Another concept, which is very important to grasp is the compartments are global constructs, like everything in identity. So resources from multiple regions can be in the same compartment. So when you go to Phoenix, you see this compartment existing. You go to Ashburn, you see the same compartment.
+
+Now, you can write policies to prevent users from accessing resources in a specific region. You could do that. But keep in mind, all of the compartments you create are global, and they are available in every region you have access to. Compartments can also be nested. So you have up to six levels nesting provided by compartments. You would do this again because this can mimic your current design, whether it's your organizational design or whether it's your ID hierarchy. You could create nested compartments. It just helps keep your design cleaner.
+
+And then, finally, you could set quotas and budgets on compartments. So you could say that, my particular compartment, you cannot create a bare metal machine. Or you cannot create an Exadata resource. So you could control it like that. And then you could also create budgets on compartments. So you could say that, if the usage in a particular compartment goes beyond $1,000, you'd get flagged, and you get notified. So you could do that.
+
+So that's Compartments for you. It's a very unique feature within OCI. We believe it helps keep your tenancies much better organized. And it really supports your current ID hierarchy and design. Thanks for watching. 

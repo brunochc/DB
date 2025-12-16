@@ -1,0 +1,43 @@
+Welcome to this module on OCI Storage Services, what they are, and how they work. Before we go and dive deeper into the various storage services available within OCI, let us look at storage requirements because they are many and varied.
+
+So first is when you decide on what kind of storage to use, you want to answer whether you want persistent storage or non-persistent storage. Then you have to answer what kind of data are you storing.
+
+Is it database files? Is it videos? Is it audios, photos, text? What kind of performance do you need? What kind of capacity do you need? How many input/output per second IOPS? How much is the throughput?
+
+Then you need to decide on durability. How many copies of data you want to maintain? There is a difference between persistence and durability. Persistence basically means you safely store the data.
+
+Durability means making multiple copies of the data, replicating the data, so in case you are storing them safely, even if one copy goes bad, you still have other copies to fall back on.
+
+Connectivity is important as well, whether you want local storage or you want network storage. And how does your application access that storage data?
+
+And finally, the protocol because that determines what kind of applications you can build, whether it's block, file, or something as simple as HTTP.
+
+Now, these are some storage requirements, and I'm sure there are many more. But you have to wrestle through these before you decide on what storage services to use.
+
+Let us look at the lineup of OCI Storage Services. And I'm just going to cover some of the few-- the main ones here. There are others which we will cover in subsequent lessons.
+
+So the first thing is local NVMe. Local NVMe means, as you see in the picture here, you have a data center, which we call as availability domain within OCI. You have a compute server and you have a locally attached storage.
+
+So when you think about local NVMe, think about locally attached storage. These are NVMe SSDs, super high performance, gives you hundreds of thousands of IOPS. And you could run your most performance-sensitive applications using local NVMe.
+
+Then what we do is we take this locally stored, attached storage and we move it to a remote server, a network server. So, in this picture, you see there's a compute instance. And it's talking to a storage server, which is on the network.
+
+So the advantage here is the storage can be truly persistent and durable and extend beyond the lifetime of the instance itself. This kind of storage is called block volume.
+
+In this case, the storage, the data is managed as fixed-sized blocks. So you create a partition, you create a file system, then you mount the file system. And that's how your compute instances use the storage service. So block volume.
+
+File storage is a similar kind of a storage still in the same availability domain, but it's a shared file storage system. So, in this case, you see two compute instances.
+
+And then they have a need to have a shared storage system where they can read and write, but the storage is shared. So it's very similar to block volume, but the difference here is you manage the storage as files and directories.
+
+You don't partition the disk. You still do some of the things like you mount the file system, and that's how your instances use the shared storage. So think shared, think file storage.
+
+And then finally, we have object storage, which is storage for the web. So you have storage-- this is kind of storage you would use for photos, videos, log files, text files, any kind of files you store on the web.
+
+Typically, the way it is accessed is you have an internet client who accesses this particular-- these objects using simple and familiar HTTP verbs like Put and Get.
+
+Put meaning you create an object. Get meaning you download an object. And so these are the main storage services which exist within OCI.
+
+Along with that, we have several data migration services. So we have two which are related to data transfer-- data transfer disk and appliance. Disk is, basically, you send us your disks and we migrate the data.
+
+Appliances, you use a much larger appliance to send the data to us. So that's it. A bunch of storage services, each suited for a different use cases. In the next few lessons, we are going to dive deeper into each of them. Thanks for watching. 

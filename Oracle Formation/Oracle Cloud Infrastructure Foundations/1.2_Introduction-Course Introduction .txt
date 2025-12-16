@@ -1,0 +1,9 @@
+Welcome to the Oracle Cloud Infrastructure Foundation certification course. I'm so glad you are here. This course is created specifically for you to start learning Oracle Cloud Infrastructure and become well-versed in OCI fundamentals. My name is Rohit Rahi, and I am part of the Oracle Cloud team. I'll be your instructor for this course.
+
+I have been fortunate to spend more than 10 years in the cloud space and be part of the Oracle Cloud team from the very start. My team builds OCI certification and trainings, and in the past few years, we have trained hundreds and thousands of learners on Oracle Cloud Infrastructure.
+
+This course will give you the knowledge, skills, and the confidence to pass the OCI Foundations exam and beyond that, give you the foundational knowledge needed for OCI projects. The course will cover all the areas of the OCI Foundations exam. We will start with a quick introduction of the Osi platform, and then we will dive deep into the core primitives-- compute, storage, networking, identity, security, and more.
+
+And last but not the least, I will discuss our differentiated pricing, SLA, and support options. Throughout the course, I will be using fun analogies to explain complex topics and leverage visual slides to help you better retain information. There is a skills check at the end of every module so you can validate your knowledge and gain the confidence to pass the exam.
+
+And finally, we understand you are busy, so most of our course lessons are less than five minutes long. Our goal is to help you retain information and keep you engaged. I hope you are as excited as I am to start this course. Thanks for enrolling. Let's begin.

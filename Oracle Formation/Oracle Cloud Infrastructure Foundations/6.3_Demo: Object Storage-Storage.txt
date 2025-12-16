@@ -1,0 +1,29 @@
+Hello, and welcome. In this demo, let us look at OCI Object Storage service. We are going to create a bucket and upload an object to that particular bucket. So let's get started. As you can see here, I'm logged on to the OCI console.
+
+So to access object storage service, let me click on the Navigation menu, and click on Storage. And you can see all the storage services listed here, block storage, file storage, object storage. So I'll click on Object Storage. And it will give me the interface to create buckets and upload objects.
+
+So you can see here it says Create Bucket. I'll click on it. And it picks up a bucket default name. I'm OK with that name. And then it's asked me to choose a storage tier, whether it's standard or archive. And remember, there's also a tier in between called infrequent access.
+
+And you can enable auto-tiering, which basically moves infrequently accessed objects from the standard tier to the less expensive infrequent access tier. So you could do that. And be careful what storage tier you choose because you can only specify this during creation.
+
+You cannot-- once set, you cannot change the storage tier in which a bucket resides. And then there are some advanced functionality around versioning, creating automation based on object state changes, et cetera. And below here, you can see encryption.
+
+Data is encrypted by default using Oracle managed keys. But if I have a vault, and I have access to that vault and I have a key, I can actually encrypt my objects using that particular key. That's the customer managed keys. So I'll go with the default option. Click Create here. And now my bucket is created. So as simple as that.
+
+And now I can go ahead and upload an object. So let me quickly do that. I'll click Upload. And I'll choose a file from my local machine. And I'll upload this file. And you can see here that the file is now uploaded. You can see it's 119 KB in size. And if I click on this ellipsis, I can view object details. I get a public URL. Remember the service has public endpoints. So I get this URL. And I can see some of the other things listed here.
+
+And if I click on here, and I paste this URL, you will see that it says that the bucket named-- the bucket we just created does not exist, or we don't have authorization to access it. Definitely we created the bucket. So let me just close it here. And the reason it's not showing up is because we need to change the visibility.
+
+So right now it's private, meaning that people who have anonymous access, unauthenticated access, they cannot access this particular bucket and objects in that bucket. So let me go ahead and make it public. And it gives me a warning saying that you should rather use pre-authenticated request. We'll look into what these are. I'll click Save Changes here.
+
+And now if I go back to the URL, you can see that the object is visible here, right? But because it gave me a warning, so let us actually go ahead and change the visibility to private. I'll click Save Changes here. And now if I go back and access my object, you can see that I get the same error message because it doesn't allow anonymous and unauthenticated access because it's a private bucket.
+
+But how can we enable people to access that object while keeping the bucket private? So there's an option, which is called pre-authenticated request. And to use it, I'll just click on this ellipsis and click on Create Pre-authenticated Request. And what it does, it gives a security token, which you can use with a URL and only people who have access to that URL can access the object. Other people cannot access that object.
+
+And you can create this on a bucket level or an object level. I'll choose the object. And then you can decide what kind of access. And you have to be careful on expiration date. Once set, this cannot be changed. So I'm OK with these options. I'll click Create Pre-authenticated Request. And it says that copy this URL because it will not be shown again.
+
+So I'll click this URL. I'll go back to my browser. And I'll paste the URL. And now you can see I can access the object. So what is the difference between this and the previous URL? The difference is, if you notice, that in this URL, I have this extra token, security token with kind of slash denoted by that.
+
+This security token is what pre-authenticated request creates. And using that, even people who are anonymous and unauthenticated, they can still access this object. But other people who are anonymous and unauthenticated, and they don't have access to that URL, they cannot access the object.
+
+So this was a quick demo on how to leverage some of the capabilities of object storage service. I hope you found this demo useful. Thanks for watching. 

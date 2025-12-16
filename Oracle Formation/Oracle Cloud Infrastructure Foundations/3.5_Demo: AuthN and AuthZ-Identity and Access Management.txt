@@ -1,0 +1,58 @@
+Welcome to this demo on OCI authentication and authorization. As you recall from the theory lesson, authentication is all about your users, who your users are, and what they are requesting. And authorization is all about permissions. Once your users are authenticated, what level of access they have, what permissions do they have to which resources? So let's look at both of these in action.
+
+I am in the OCI console here. And in the previous demo, we had created an identity domain. So let's leverage that. So click on Identity and Security. And right here, I can see Compartments and Domains. So we created a domain, identity domain in the previous demo called Sandbox Domain.
+
+So if I hover over here, I can see there are no users here. So let's go ahead and create a user. So I'll click on Sandbox Domain. Click on Users. And you can see there is no user which exists right now.
+
+So let's create a user, and let's give a very creative name-- OCI Admin. The username could be what we choose, or it could be an email ID if we choose an email ID here. And we also need to specify an email ID here so the user can access their passwords, reset their passwords, et cetera. So we'll provide an email ID here.
+
+And I'm not going to add the user to any of the groups here. So let me just go ahead and create this user. Now, in OCI, the policies are defined at a group level, not for individual users. So let's go ahead and actually create a group as well.
+
+So if I click groups here, you can see there are two groups which are existing by default. Let's go ahead and create another group here. So we'll call this group OCI Admin group. And as you recall from the theory lesson, it's a good practice, best practice to create separate administrators and not use the root user for day-to-day operations.
+
+So I create this OCI Admin group. And here, I can specify which user should be part of this group. So ociadmin is fine. I'll click Create.
+
+And now, what I have done is I have created a user, and I've created a group to which the user belongs. But right now, first, what I need to do now is to activate the user so the user has access to the system. That's authentication. And then we need to write some policies so the user can perform some actions in OCI. So let's go ahead and log into my email account, and I'll activate the user.
+
+As you can see here, I got an email asking me to activate my account. So I'll click here, and it'll prompt me to-- first thing you see here it's prompting, it's prompting that identity domain is sandbox dash domain. It's no longer giving this as the default domain. So you see the difference there?
+
+And now, it's asking me to set up a password for my username. So I'll go ahead and choose a password which actually will work here. And I'll reset my password here.
+
+And then it says, continue to sign in. So I can sign in here. But instead of doing that, let me actually open an incognito window and actually sign in through the incognito window.
+
+So I'll access the URL for OCI console. And it will ask me to enter my tenancy name. And ocifoundations, that is the tenancy name, so click Next. And then it will ask me to provide username and password. This is how you would access OCI console.
+
+So right now, I get a choice of identity domain, whether it's default or sandbox domain. So I'll pick sandbox domain because that's where my user belongs. And click Next.
+
+And it will ask me to provide a username and a password. So I'll provide ociadmin. That's my username. And I'll provide the password, which I just reset.
+
+And now, I'm logged in as ociadmin to the OCI console. So if I click on the right-hand side, you can see my profile. You can see here, right now, my identity domain is sandbox domain, and my username is ociadmin. So this is authentication.
+
+Now, I can authenticate to the system, meaning I have access to the system. So I can see all the services. I can see the console, et cetera.
+
+But can I do anything? Actually not because I really don't have any authorization. No permissions have been given to me. So if I click here and I see my compartment, you can see that I'll get an error message saying, I do not have authorization to perform this request.
+
+And it's not just for storage buckets. If I go to Compute, I'll see that I cannot do anything on Compute because I have no authorization here, and so on and so forth, right? It's basically, I have just created a user and put that user in a group. And I have logged into the system, so that's authentication. But beyond that, there is nothing else which I have done because authorization is still to be done.
+
+So to do that, what we'll do is we'll go back to the OCI console. And here, I'm logged in as my tenancy administrator. And you see, if I go back out of domains, the policies are defined actually outside the domain. So I'll click on Policies, and we'll create a policy for OCI Admin group.
+
+So I'll click on Create Policy here. And it's rather straightforward to create policies. So I'll say this is-- what is this for? OCI admins.
+
+And right here, there is a Policy Builder which I can use. I'll show you in a second. Or I could actually manually write policies here. And these are human-readable formats and not complex JSON, et cetera. But it's actually quite simple to use this Policy Builder.
+
+So because we want to create a storage bucket, I'll click a policy use case as storage management. And right here, it gives me all sorts of policies I can write for storage. So I'm interested in object storage, so I'll click on that.
+
+And right below that, it's asking me, what groups, what identity domains, et cetera, I want to leverage? So my identity domain which I want to use is sandbox domain. And the group which I have is the OCI Admin group. And it also gives me a location, which is whether it's for a compartment or it's for a tenancy.
+
+So I'll choose the sandbox compartment. And that's all it takes. And now you can see it spits out the policy statements. It says, allow group, sandbox domain, OCI Admin group to manage buckets and manage objects in this compartment. So outside that compartment, I still don't have access. But within that compartment, I should be able to create buckets and upload objects.
+
+So I'll go ahead and create these policies. Quite straightforward to create these policies. And if I come back here, now, in the same login as ociadmin here, if I go back to if I go to compute and refresh the page here, you will see that I still don't have access to compute resources. So I cannot create any compute resource because we didn't write to policy for compute. So it'll kind of error out as is shown here.
+
+But if I go to storage now and bring up object storage, I should be able to create an object storage bucket, not in the root compartment, but in the sandbox compartment. So if I click here, first thing is I see sandbox compartment here. And I can click Create Bucket.
+
+The default name is fine. Click Create. And here, you can see that my bucket can be created.
+
+But if I go to the root compartment and I try to create a bucket here, you will see that the bucket it says it already exists or you're not authorized to create it. It's of course not authorized to create because our policy is only operating at the sandbox compartment level.
+
+So this is exactly what authorization does where we write specific policies giving access to a set of users to specific resources, whether it's in the compartment or in the entire tenancy. I hope you found this demo useful. Thanks for your time.
+

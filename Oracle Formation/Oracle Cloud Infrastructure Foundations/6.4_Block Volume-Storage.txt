@@ -1,0 +1,21 @@
+Welcome back. Let's look at OCI Block Volume service. At the very core, the Block Volume service provides persistent and durable storage to compute instances. As you can see on this graphic here, there's a compute instance which is talking to disks, persistent and durable disks, which are sitting on a network server.
+
+So the core idea here is to get the persistent and durable storage. What does that actually mean? Well, if you look at the same picture again, your compute instance talking to a block storage disk. You can create and attach these disks to the compute instances. You can detach and delete the disks. And most importantly, you can keep the data even after you delete the instance.
+
+So the data is stored independently of the instance lifecycle. And that is the number one reason why you would use a Block Volume service to provide that persistent and durable storage, persistent meaning it's a safe storage. It stays beyond the lifecycle of the compute instances itself. Compute instance gets terminated is still safe. And durable means we make multiple copies. So even if we lose one copy, we have other copies of the data available in the data center.
+
+Let's look at the Block Volume tiers. We start with a tier which is called lower cost. This is good for large sequential I/O workloads like streaming data warehousing. Then you have a balanced tier, which is a balanced choice for random I/O, things like your boot disks. Then we have a higher performance tier, which is for the most I/O demanding workloads.
+
+And then we have ultra high performance tier, which is for the highest I/O-demanding workloads. So things like your relational databases. And you can see the characteristics down below starting with two IOPS per gig, going all the way to 225 IOPS per gig.
+
+And then we also have this feature, which is called auto-tune performance. And what it does, it changes the volume performance to lower cost when the volume is detached. When the volume is reattached, the volume performance is automatically adjusted to the previous setting. Why would you do it? Well, it helps you save on the costs.
+
+So with Block Volumes or data in general, you want that data to be safely stored. So we have encryption turned on by default. You cannot turn this off. And you can bring your own keys. And we also have encryption for data at REST.
+
+And we also have encryption in transit, meaning when your virtual machine is talking to the block storage service, the traffic is encrypted in transit between the virtual machine and the block service. Block service also has this feature called read/write shareable where a single disk can be shared with multiple VMs. And these VMs can read and write to the single block volume.
+
+We also have this capability of resizing Block Volumes. And what this means is you could do online resizing or offline resizing. With online resizing, you can expand the volume size without detaching the volume from an instance. So it keeps your applications up and running. And you can still change the size of your Block Volumes.
+
+We also have a feature which is called replication of Block Volumes. And as you can see in this graphic here, the Block Volumes are being replicated from one region to another region. Why would you do that? You would do that for disaster recovery. You would do it for migration. Or if you are expanding your business, you would leverage this feature. The idea here is to replicate the data to multiple regions. And keep in mind this replication is asynchronous.
+
+And then finally, we have this feature called volume groups. Block Volume service provides you with the capability to group together multiple volumes in what we call as a volume group. This simplifies the process to create time consistent backups of running applications that span multiple volumes across multiple instances. And the idea here is then you can-- once you create a volume group, you can restore an entire group of volumes from a volume group backup. So folks, that's it. That's Block Volume Thanks for watching. 

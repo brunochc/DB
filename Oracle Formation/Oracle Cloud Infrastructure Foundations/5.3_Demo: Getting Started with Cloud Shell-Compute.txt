@@ -1,0 +1,11 @@
+Welcome to this demo on OCI Cloud Shell. Let us look at how you can use Cloud Shell to generate SSH keys. So I'm logged onto the OCI Console. And as we discussed earlier, you can access Cloud Shell from the Developer Tools menu on the global menu. So click on Cloud Shell from here, and this will bring up the Cloud Shell.
+
+As you recall, Cloud Shell is nothing but a small virtual machine running a Linux shell which you access through the browser through the OCI Console. And it comes with a pre-authenticated OCI CLI and lots of utilities like Git, Java, Python, et cetera.
+
+So right here I can see my Cloud Shell is up and running. And the first thing I'm going to do is I'm going to look at the directories which are here. So I'm going to generate a SSH key pair. And for folks who are unfamiliar, SSH protocol, also referred to as Secure Shell, is a method for secure remote login from one computer to another. That's the easiest way to think about it.
+
+So let's go ahead and create a directory for keeping my SSH keys. Let's go to that directory. And right here, I can create my-- generate my key pair. To do that, this is the command to generate the key pair. It basically says generate keys, and this is the size of the keys. And the algorithm I'm using is RSA. And I need to provide a name for the key, so I'll say Demo Key and that's good. And it is asking for a passphrase. I don't need to provide that. I can skip this. And now the key gets generated.
+
+So now if I see this directory, I can see that there is a key pair and there is a demo key which is a private key and then there is a public key, which is denoted by .pub. Now, the public key gets copied to the remote server, and the private key stays with the user. And the position of that private key is a proof of the user's identity. Only the user in possession of a private key that corresponds to the public key at the server will be able to authenticate successfully.
+
+So using Cloud Shell, the whole idea is you don't need another development environment like your local machine or a utility like PuTTYgen to generate these SSH keys. Now since we have generated this SSH key pair, we will be using this in our subsequent compute demo. I hope you found this demo useful. Thanks for watching. 

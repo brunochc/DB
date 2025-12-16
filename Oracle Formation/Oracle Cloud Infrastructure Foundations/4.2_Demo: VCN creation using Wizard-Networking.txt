@@ -1,0 +1,23 @@
+Welcome. In this demo, we are going to create a VCN using the OCI VCN Wizard. So this is the topology we are going to follow in our demo. We'll create a VCN with two subnets, one being a public subnet, other being a private subnet. And then we will create these gateways, internet gateway, NAT gateway, and service gateway. So let's get started.
+
+I am logged onto my OCI Console here. And to bring up the Networking Services, I'll click on the navigation menu on the left-hand side and click on Networking here. As you can see from this view that all the networking services are grouped under this Networking link here. So all the services are available.
+
+So to bring up the Virtual Cloud Networks, I'll click on Virtual Cloud Networks here and this will bring up the options to create a VCN. So there is a manual option to create VCN, and then there is a way to create VCNs using the VCN wizard. So let me click on the VCN wizard here, and it gives me a couple of options to create the VCN.
+
+The first option says I can create the VCN with internet connectivity, and you can see the same topology we looked at earlier, public subnet, private subnet in a VCN along with the gateways. The second option is a little bit more complex where we have a VCN with a public subnet and a private subnet, but then we also have a site-to-site VPN connectivity. Now this is a more complex scenario, so let's go with the simpler scenario which is creating a VCN with internet connectivity.
+
+So I'll click on Start VCN Wizard. And then as you will see here, it asks me for a couple of information and it will go ahead and create the VCN for me. So the first thing I'll say is I need a name for the VCN, so I'll say this is a VCN in US East. That's my region I'm using. US East Demo. I'm creating the VCN in the sandbox compartment.
+
+And then right here, it's giving option for the CIDR block. Now, the CIDR block here, it's pre-filling for me but I can go ahead and change it. So this CIDR block is 10.0.0.0/16. That's close to 65,000 plus IP addresses. And it's also giving me a public subnet and a private subnet with these CIDR blocks.
+
+Now what we do is we take that bigger network and then as you can see here, we divide that into smaller networks. So 10.0.0.0/24 and 10.0.1.0/24. So each of these networks have 256 IP addresses. And we can create 256 such networks using this particular CIDR block here. And you can read more on the CIDR block, you can get access to calculators and you can calculate all these values if you want to change those. But I'm happy with these, and I'll use the default ones.
+
+So then I'll click Next here, and it tells me that it's going to create all these artifacts. I'm OK with those, and I'll click Create. And within a couple of seconds, my VCN will get created. And as you can see here, the VCN gets created and I'll show you all the components and show those in a kind of a visual manner.
+
+So if I click on View VCN I can access all the VCN resources here. I can see the two subnets got created. It also created two route tables, two security lists, and it also created all the gateways, internet gateway, NAT gateway, and service gateway. So you can view all these details here.
+
+But there's a better way to look at all these views using something called a Network Visualizer which is available under the Network Command Center. So if I click on it, basically what it does it shows the same information but in a more visual manner. So this is a very simple VCN with two subnets, but you can have more complex VCNs which have peering relationships and more components.
+
+So you can see here, this is my VCN service gateway, internet gateway, and NAT gateway. If I click on here, I can see all the details like the CIDR blocks, et cetera. And if I click on VCN Routing Map, I can see that my public subnet uses the internet gateway to go to the internet. You can see here. So this could be I could put a web server here.
+
+And then you can see the private subnet basically could be hosting databases, and the private subnet here is kind of going to the service gateway as well as NAT gateway. And depending on what the use cases are, you could either go to send the traffic to the service gateway or the NAT gateway. So this is how you can visualize your VCN, and it's quite simple to create a VCN using a VCN wizard. I hope you found this demo useful. Thanks for watching. 

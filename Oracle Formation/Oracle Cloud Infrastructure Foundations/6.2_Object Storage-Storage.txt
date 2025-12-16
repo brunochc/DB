@@ -1,0 +1,41 @@
+
+
+Welcome back to the lesson on OCI Object Storage. What is OCI Object Storage? Well, it's an internet-scale, high-performance storage platform. In here, data is managed as objects. Irrespective of the kind of data you store, they are all managed as objects.
+
+It's ideal for unstructured data, like your logs, your videos, your pictures, your text files. It's a regional service. It's a public service. There are multiple storage tiers. And we'll look into each of them. You can still have private access from OCI resources like your compute instances. So even though it's a public service, you could still have private access and several other mechanisms to do that.
+
+And then there are lots of advanced capabilities. This is a foundational course. So we're not going to go into those features. But it's a very rich-- feature rich service. So what are the scenarios in which you would use an OCI Object Storage? Well, you use it as a content repository. Like I said, you can use it for structured and semi-structured data. You could use for big data scenarios. And very importantly, you could use it for archive and backup purposes.
+
+So how does object storage work? Let's look into this. What are the key resources here? So the first thing is object itself. Anything you store in object storage is referenced as object. Think about object as key value pairs or name value pairs, name being the name of the file your storing and the value being the actual value of the file. And then objects can also have object metadata. And you could define your own metadata there.
+
+Objects are stored in a bucket as you can see on the graphic here. And the buckets have your unique name within the tenancy. Important thing to keep in mind is there is a flat hierarchy. And anytime you see a folder structure, that's simulated by the object storage service by using something called prefixes.
+
+So remember all the objects you store just go in a flat hierarchy within the service. There's also something called a namespace. Namespace is a logical entity. It's a top-level container for all buckets object. And it has to have a globally unique name.
+
+So let us look at an example of how this works. You can see here, I have this URL, which is the API endpoint for object storage. That's how you access these objects. Remember, this is public service. You access them using a public API endpoint. And that's-- API endpoint is, one of the examples is shown here.
+
+So in this case, let's start from the bottom. You have an object which has a notation /O and anything beyond that-- after that is the object name. So here I'm storing object, which is log.zip. It goes into a bucket, which is called development.
+
+And that's denoted by the /B. And then there's a namespace, which is the account name. And you can see that there. So that's how the API is constructed. And the first few things part there are the object storage service name. And it's a regional service, so you see a region there, US San Jose 1.
+
+So let's look at some of the tiers. We talked about object storage tiers. So the first tier in object storage is called the standard tier. It's also referred to as the hot tier. What it means is this you keep all the critical data, which you want to retrieve instantaneously, you keep it here.
+
+The retrieval is instantaneous. And it's also strongly consistent. So any time you update the data, we give you the most recent copy of that data. There is a second tier, which is called infrequent access. What it means is you still have critical data, but this is a long-term critical data. You don't need it right away.
+
+So think about backups. You would keep them in infrequent access. There are some restrictions here. The data has to be stored for a minimum of 31 days. And there is a retrieval fees when you get the data back. What is the upside? It's 60% cheaper than the standard tier. And there is a retrieval fee, but it's significantly cheaper than the standard tier.
+
+And then there's a third tier, which is called the archive tier. This is for your data, which you don't need right away. You rarely access this data. So think about tape storage. It's basically tape storage in the Cloud, but much easier and much more feature-rich.
+
+So there's a minimum retention requirement of 90 days. And there is a process where objects need to be restored and then downloaded. So when you put data in archive storage, you'll need to restore it. The minimum time required to restore is an hour. And then you need to download. And you get 24 hours, which you can extend to 40 hours. But you need to download that data to standard tier, and then you can access from the standard tier.
+
+But that's not all. There is a feature called auto-tiering, and what it does is it looks at your access pattern. And let's say you have unknown access pattern or your data access pattern keeps changing, it can move the data from standard tier to infrequent access tier and vise versa. And it can move back to standard if your objects start getting used again.
+
+The idea here is this is intelligence given by the service. There is no retrieval fees. There is no pro-rated storage fees. And using this feature, you can significantly reduce your cost because you can go from standard to infrequent access, 60% cheaper, and then move back if your objects start getting used.
+
+That's not it. There are lots of other features. One feature, which is really important is lifecycle management. And as you can see here, it helps you transition the data from higher cost tiers to the lower cost tiers. So you could say after 30 days, move my data from standard tiers to archive tiers, and delete them after 180 days. And you write a rule. And the service takes care of that.
+
+You can also do versioning because as you are storing your data, you can have multiple versions of that data. And these objects are automatically versioned. You just specify that on the bucket and we take care of that.
+
+So data encryption. It's very important because you're storing sensitive data in the Cloud. You want it to be safe. So we give you data encryption by default. You cannot turn this off. You can always bring your own keys for very stringent requirements. You have that option.
+
+How do you access all this data? You access all this data using a simple API call. Like I showed you in the beginning, you call that API, use familiar HTTP verbs, and you can access this data. So that's it folks. Object storage, a very feature-rich service. Next time you're taking that picture, chances are it is stored in an object storage. Thanks for watching. 

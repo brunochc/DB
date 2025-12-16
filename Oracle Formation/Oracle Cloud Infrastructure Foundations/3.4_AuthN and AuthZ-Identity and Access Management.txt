@@ -1,0 +1,29 @@
+Welcome back to this lesson on authentication and authorization. Before we get into more specific details, let's look at what is a principal. A principal is an IAM entity that is allowed to interact with OCI resources. There are two kinds of principals primarily in OCI. One is your users. Think about people who are logging on to your console or using your CLI or SDKs. Users, human beings, actually using your cloud resources.
+
+And then the resources themselves can be principals. So a good example of a resource principal is an instance principal, which is actually an instance which becomes a principal, which means that it can make API calls against other OCI services like storage.
+
+Also, when we talk about principals, we have groups. And groups are basically collection of users who have the same type of access requirements to resources. So you can have a storage admin group where you could group all the human beings who are storage administrators and so on and so forth.
+
+So let's look at some of the details, starting with authentication. Authentication is sometimes also referred to as AuthN. And as we recap from the previous lesson, authentication is basically figuring out are you who you say you are? And the easiest way to understand this is all of us deal with this on an everyday basis. When you go to a website and you provide your username and password to access some of the content, you are being authenticated.
+
+There are other ways to do authentication. The one common for cloud is API signing keys. So when you are making API calls, whether you're using the SDK or the CLI, you would use the API signing keys which use a public-private key pair to sign these APIs calls and authenticate these API calls.
+
+It uses an RSA key pair, as you can see here, with both a public key and a private key. There is also a third way to do authentication. And that's based on authentication tokens. And these are Oracle-generated token strings. And the idea here is you can authenticate third-party APIs which don't support OCI authentication model.
+
+So in this example, we are showing an ADW, calling an ADW, Autonomous Data Warehouse API call, where we are using these auth tokens. Till your identity is being followed, these auth tokens can be used for this purpose.
+
+Now, let us very quickly look at authorization. So authorization deals with permissions and figuring out what permissions do you have. In OCI, authorization is done through what we call as IAM policies. And policies, think about these as human-readable statements to define granular permissions. So you have a couple of examples here. And the policy syntax is always something similar. In the next slide, I'll talk a little bit more about what this statement means.
+
+Remember policies can be attached to a compartment or they could be attached to a tenancy. If they are attached to a tenancy, it applies to everything within that tenancy. If it's applied to a compartment, it applies to only the resources within that compartment.
+
+So how is AuthZ done in OCI? We talked about policies. What does the syntax look like? As you can see here, the syntax is always-- always you have to start with an allow. Everything is denied by default. So you don't really have to write a deny statement. So you say allow, group name, group is basically a collection of users. So you cannot write a policy on individual users. You always operate at a group level.
+
+To do something, there's a verb. On some resources, there is a resource type. And there is a location. Location can be a tenancy, location can be a compartment. And you can make these policies really complex with adding conditions. And again, foundations course. So we are not getting into a lot of these complex topics. But you could really write complex policies.
+
+So just to give you an idea of what the verbs might look like. There are four levels of verb. There is a manage, there is a use, there is a read, and there is a inspect. So manage basically means you can manage all resources. Use basically means you can read, but you could not do things like update and delete, and so on and so forth. And you can read more on the documentation.
+
+Resource type basically can be all resources, meaning everything in your account. Or it could be compute resources, database resources, whatnot, all the resources you have. Now, you could operate at a family level, which is meaning all the entities within that resource family, or you could even go very granular. So you could say that in compute, I just want somebody to operate on the instances, but not work on the instance images. So you could actually do that.
+
+So this is how you would write a policy. There are some exceptions to this rule. There are policies you would write for services and such. But again, it is a foundations course. So we're not getting into those advanced details. This is typically how you would do authorization in OCI.
+
+To wrap up, we looked at how you do authentication in OCI. The three mechanisms-- username/passwords, API signing keys, authentication tokens. And then we looked at how you do authorization in OCI through policies. Policies are really powerful. They are very easy to understand human readable. But at the same time, they give you a lot of advanced capabilities to implement really fine-grained access control. I hope you found this lesson useful. Thanks for watching. 

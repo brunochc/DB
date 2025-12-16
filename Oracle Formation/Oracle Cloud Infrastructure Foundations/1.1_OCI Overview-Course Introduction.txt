@@ -1,0 +1,27 @@
+Transcript
+
+[A] Keywords
+
+Some of the world's largest enterprises are running their mission critical workloads on Oracle's next generation cloud platform called Oracle Cloud Infrastructure. And today, I am really excited to tell you more about it. In this lesson, you will see a general overview of what you can do in OCI. Let's get started.
+
+To keep things simple, let us break them down into seven major categories, core infrastructure, database services, data and AI, analytics, governance and administration, developer services, and application services. We have building blocks on top of this global footprint, the seven categories, we just mentioned.
+
+At the very bottom, we have the core primitives, compute, storage, and networking. Compute services cover virtual machines, bare metal servers, containers, a managed kubernetes service, and a managed VMware service. These services are primarily for performing calculations, executing logic, and running applications.
+
+Cloud storage includes disks attached to virtual machines, file storage, object storage, archive storage, and data migration services. OCI offers a complete range of storage services for you to store, access, govern, and analyze your structured or unstructured data. Networking features let you set up software defined private networks in Oracle cloud. OCI provides the broadest and deepest set of networking services with the highest reliability, most security features, and highest performance.
+
+Then we have database services. We have multiple flavors of database services, both Oracle and open source. We are the only cloud that runs autonomous databases and multiple flavors of it, including OLTP, OLAP, and JSON. And then you can run databases in virtual machines, bare metal servers, or even exadata in the cloud. You can also run open source databases such as mysql and nosql in the Oracle Cloud Infrastructure.
+
+Data and AI services. We have a managed apache spark service called dataflow, a managed service for tracking data artifacts across OCI called data catalog and a managed service for data ingestion and ETL called data integration. We also have a managed data science platform for machine learning models and training. We also have a managed apache Kafka service for event streaming use cases.
+
+Then we have governance and administration services. These services include security, identity, and observability and management. We have unique features like compartments that make it operationally easier to manage large and complex environments.
+
+Security is integrated into every aspect of OCI, whether it's automatic detection or remediation, what we typically refer as cloud security posture management, robust network protection, or encryption by default. We have an integrated observability and management platform with features like logging, logging analytics, and application performance management, and much more.
+
+Then we have a bunch of developer services. We have a managed low code service called APEX, several other developer services, and a managed terraform service called resource manager. For analytics, we have a managed analytics service Called Oracle analytics Cloud that integrates with various third party solutions.
+
+Under application services, we have a managed serverless offering called functions, and API gateway, and an events service to help you create microservices and event-driven architectures. We have a comprehensive connected SaaS suite across your entire business, finance, human resources, supply chain, manufacturing, advertising, sales, customer service, and marketing, all running on OCI.
+
+That's a long list. And these seven categories and the services mentioned represent just a small fraction of more than 80 services currently available in OCI. Fortunately, it is quick and easy to try out a new service using our industry leading free tier account. We are the first cloud to offer a server for just a penny per core hour.
+
+Whether you are starting with Oracle Cloud Infrastructure or migrating your entire data center to it, we can support you in your journey to the cloud. That's it. OCI, a broad and deep cloud platform. Thanks for watching.

@@ -1,0 +1,34 @@
+1. Which VCN component blocks inbound traffic, but enables outbound traffic to the internet?
+O NAT Gateway
+O Service Gateway
+O Dynamic Routing Gateway
+O Internet Gateway
+Answer: NAT Gateway
+
+2. Which component is NOT created by default with the creation of a Virtual Cloud Network?
+O Default DHCP Options
+O Default Local Peering Gateway
+O Default Security List
+O Default Route Table
+Answer: Default Local Peering Gateway
+
+3. Which OSI layer traffic is supported by the OCI Network Load Balancer?
+O Layer 4 (transport)
+O Layer 2 (data link)
+O Layer 5 (session)
+O Layer 7 (application)
+Answer: Layer 4 (transport)
+
+4. Which statement about Virtual Cloud Network (VCN) peering between two VCNs is NOT valid?
+O Peered VCNs can exist in the same OCI region.
+O A VCN peering connection is a VPN-based connection.
+O Peered VCNs cannot have overlapping CIDRs.
+O Peered VCNs can exist in different OCI regions.
+Answer: A VCN peering connection is a VPN-based connection.
+
+5. Which statement about a Virtual Cloud Network (VCN) is true?
+O A VCN can reside only in a single region but can span multiple availability domains.
+O A VCN can be used with only one instance.
+O A VCN can have only one public subnet and more than one private subnet.
+O A VCN can span OCI regions.
+Answer: A VCN can reside only in a single region but can span multiple availability domains.

@@ -1,0 +1,27 @@
+Welcome to this module on OCI compute. Let's start with an introduction. So OCI Compute service provides you virtual machines and bare metal servers to meet your compute and application requirements. The three defining characteristics of this service include scalability, high performance, and lower pricing. In the next few slides, I will talk about each of these in a bit more detail.
+
+So the first thing in the OCI Compute service is you have this notion of flexible shape. What does it mean? Well, it means you could choose your own course, your CPU processors. And you could also choose your own memory.
+
+And as you can see the sliders here, you could choose a combination of CPU cores and memory. And there is a ratio there. But you have flexibility in choosing your own configuration.
+
+Literally, there are thousands and thousands of configurations you can choose from. Now, what is the use of doing this? The use of doing this is could select the right machine type by using our flexible shapes. And in the cloud, there's this notion of t-shirt sizing.
+
+So you have a small, medium, large kind of shapes. And your application has to fit those shapes. And either sometimes you overprovision or underprovision. And you have to go through that painful process of changing your machine types. We hope with these flexible shapes, you don't have to do that.
+
+If you still want to use the traditional approach, we have virtual machines. We have bare metal servers. And we have dedicated host. And you could use either one of them or all of them.
+
+Bare metal servers basically means you get a full machine, a full server, which is completely dedicated to you. Dedicated host basically means that you get a full, dedicated bare metal machine. But on top of that, you could run virtual machines.
+
+What's the difference between dedicated host and VMs? Well, VMs, as you see in this slide here, are shared and multi-tenant, meaning the host can be running VMs from multiple customers. They have strong security isolation. So you don't have to worry about that.
+
+But some customers want a dedicated host where they could run their own VMs. And they don't have VMs from any other customer running there. So that option is also provided by using dedicated host.
+
+Not only this, but OCI is only one of the two cloud providers to provide you options on processors. So you can run AMD-based instances. You could run Intel-based instances. And you could also run ARM-based instances-- are really a powerful thing for mobile computing. The phones you are using today are probably running on ARM processors. Now, ARM is coming into the data centers.
+
+So today, we are using Ampere Altra processor family. Ampere A1 instances are performed very well in many use cases. So as you can see on the screen here, we are using Nginx some price performance number. It's a good example of high-throughput workloads, like web servers, microservices, API gateways.
+
+In ARM's testing of Nginx as a reverse proxy request per second, you can see here that Ampere A1, which is the processor we are using for ARM, had 32% better price performance than the equivalent AMD processor and 69% better performance than Intel processors. So this really talks about our industry-defining price performance capability, particularly with ARM processors.
+
+And finally, on the pricing side, the service implements pay as you go pricing, we are 50% cheaper than any other cloud out there just to begin with. And not only that, you could use something like preemptible VMs to reduce your cost by more than 50% from your regular instances. Preemptible VMs are low-cost, short-lived VMs suited for batch jobs and fault-tolerant workloads.
+
+These are similar to regular instances but priced 50% lower. So you can use them to reduce your cost further. So just to recap, very powerful service. The three defining characteristics we talked about-- this notion of scale, this notion of higher performance-- we saw an example of that-- and lower pricing provided by the compute service. I hope you found this lesson useful. Thanks for watching. 

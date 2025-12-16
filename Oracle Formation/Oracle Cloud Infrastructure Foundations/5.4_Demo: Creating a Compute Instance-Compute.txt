@@ -1,0 +1,64 @@
+Welcome to this demo on OCI Compute Instance. In this particular demo, we are going to instantiate an instance-- a compute instance inside a VCN, and then we are going to manually build the VCN, we'll create internet gateway, modify the route tables and the security list. And then we are going to install Apache web server on this particular instance.
+
+So let's get started. All right. I'm logged onto the OCI Console here in the Ashburn region. So first thing I'm going to do is I'm going to create a Virtual Cloud Network. So click on Virtual Cloud Network. And this time, we are going to create a VCN using the manual method, not to the wizard. So I'll click on Create VCN.
+
+And we need to provide a name here. So we'll say, because I'm in Ashburn region, so I'll say this is IAD-VCN-demo. Sandbox compartment is fine. And here, I need to select the CIDR blocks for the VCN. I'll use the same CIDR blocks we have been using until now. And right here, I can change some of these parameters. But we are OK with IPv4 and some of the default parameters here.
+
+And I'm going to click on Create VCN. And this will now create a bare bones VCN. And I need to go ahead and create subnets, et cetera. So first thing I'm going to do is I'm going to click Create Subnet here. And let's create the first subnet here. And we'll call this subnet 1. Sandbox compartment is fine.
+
+And there are two choices which we get, whether it's a regional subnet or AD specific subnet. We'll go with regional as is recommended here. And then it's asking me to provide a CIDR block. So we'll use the 10.0.0.0/24. And you can see here 256 IP addresses which are provided, which are available as part of this subnet.
+
+And now I can choose the subnet to be either private or public. We are going with the public subnet because we are going to spin up a web server inside this subnet. And just all the parameters look fine. The security list here, default security list is fine. And if I just scroll here, everything else-- the route table, I'll choose the default route table. And then I'll click on Create Subnet.
+
+So now what we have done is we have created a VCN. We have created a subnet, and associated the default route table and the default security list with the subnet. So the next thing for us to go ahead and do is to create an internet gateway. And this provides the path for our packets from the web server to the internet.
+
+So I'll give a very creative name IGW and hit internet gateway. And now the internet gateway is created. And the subnet is created. So the next step for us is to add a route from the subnet all the way to the internet gateway. So you can see here the default route table has no rules right now. So I'll click here. And I'll add a route rule.
+
+So first it says, what is my target type? And my target is internet gateway. And then it says, what is the destination CIDR block? And now I'm going to use quad zero because this basically means all IP addresses, right? And I'll choose my target as internet gateway. And I'll add this route rule. So what we've just done is we ensure-- we have ensured that the public subnet has a path to the internet through the internet gateway.
+
+Now the next thing for us to do is to come to the security list. And if I, again, I'm using the default security list. Click here. You can see the default rules which get added. And you will see that it has access for TCP at port 22, et cetera.
+
+So we need to add a rule to get the traffic to come on port 80 for the web server. So again we'll use quad zero as my source CIDR meaning all IP addresses. And my destination port will become port 80. That's where the web server is running. So I'll click Add Ingress Rule. And that's pretty much all we need to do from a VCN perspective.
+
+So we have created, again, just to recap, we created a VCN. We created one public subnet. We created an internet gateway. And then we change the rule in the route table to allow access out and in to the internet gateway from the subnet. And then we modified the security list to allow traffic at port 80. So that's all we just did manually. If we had used wizard, some of that would have been automated.
+
+So now let's go ahead and spin up a compute instance. So I'll click here on Instances, and I'll bring up the instance creation menu. So I'll click on Create Instance here. And it gives a name. I'm OK with that name. And right here, you can see the placement. It provides here AD 1, AD 2, AD 3. I'm OK with that.
+
+If I click on Advanced Options, I can see things like on-demand capacity, preemptible capacity, dedicated host, et cetera. This is a foundational course. We're not going to get into a lot of details. But just keep in mind that there are various capacity types which are available with the compute service.
+
+And it can also choose the best fault domain. I'm just keeping-- giving that option to Oracle to choose the best fault domain. Otherwise, I can choose fault domain 1, 2, or 3 here. And right here, you can see that it's picking an image and a shape. So shape is basically a template-- virtual hardware template which determines number of CPUs, amount of memory, other resources.
+
+Image is basically an operating system, which runs on top of that shape. So think of this as kind of combination of hardware and software. So if I click on Change image here, I can get-- I can see options for Windows, Linux, Red Hat, Ubuntu, et cetera, right? I'm happy with Oracle Linux. So I'll keep that default.
+
+And if I click on Change shape, now you can see that I can first choose between a virtual machine and a bare metal machine. And then bare metal basically means that you get 52 cores. It's the complete server, which is given to you. Virtual machine option, I'll go with that.
+
+And here, you can see options for various processors, whether it's AMD, Intel, Ampere, et cetera. And I'll go with AMD. And right here, you can see that these shapes have this abbreviation called flex. And basically what that means is these are flexible shapes. So I can choose the number of OCPUs and the amount of memory. So I can move this slider here, and I can actually decide what kind of OCPUs and memory I want.
+
+So I'll go with something like 1 OCPU and 6 GB of RAM. That sounds about right. And I'll choose that shape. And right-- below that I can choose my network. You can see that the network we just provisioned shows up here.
+
+So that's the VCN demo network we created. And it's also picking the subnet, which is the public subnet we created. And public subnet basically means that my compute instance basically gets a public IPv4 address. So you can see that here. And below that, you have an option to add SSH keys. If you recall from the previous demo, we actually created SSH keys. And if I go to my Cloud Shell and-- sorry, just clear the screen.
+
+And I bring up my keys. You can see that I have two-- you have two keys here. It's kind of a key pair where I have a private key and a public key. So look at the contents of the public key. I can just do a cat command. And I can copy this entire string here because this needs to be put as part of the server. The private key has to go there. So I will say paste public keys. And I would paste the public key here.
+
+And there are other options which are available. But I'm just going to hit Create this instance. And you will see within 15 to 20 seconds, the instance will be up and running. And we will be able to SSH into the instance. Once we are able to SSH to the instance, we can go ahead and we can install an Apache web server on it.
+
+So let me just hit pause here, give it a few seconds, and we'll come back once the instance is up and running. All right. So you can see here my instance is up and running. And as I scroll down, I can see options like public IP address, my virtual network interface card, IP addresses, username, et cetera.
+
+So what I'm going to do next is I'm going to SSH into this instance. So I will say SSH minus I provide the name of my private key. So that's demo key. And right here, you can see that the instance gets a public IP address because we instantiated it in a public subnet. So I'll provide that here. Or I could have just copied from here as well. So that's fine.
+
+And I'll say I want to connect to this instance. Say yes. And right here, you can see now I'm inside the instance. So if I want to ping-- you can see I'm connected to the instance. If I want to ping let's say, for example, Google because this is a public subnet, you can see that I have access to the internet.
+
+So let me go ahead and install Apache web server on this machine. And this will take a few seconds. And we'll come back, and we'll see this in action. All right. So that took less than a minute.
+
+And what I did here was install Apache, and then to run a few commands just to open up the firewalls, et cetera. And right here, you can see that we customize the home page to say something like this is a web server running on OCI.
+
+So that's pretty straightforward set of commands. And right here you can see that this is my public IP address. So let me just copy the public IP address and paste it in the browser. And you can see right here-- let me zoom in. You can see that this-- says, this is my web server running on Oracle Cloud Infrastructure.
+
+So this is how simple it is to create a compute instance in OCI. We went from scratch. We built a network, and then we instantiated a compute instance in that network. I hope you found this demo useful. Thanks for watching.
+
+    © 2025 Oracle University
+    Privacy / Do Not Sell My Info
+    Contact Us
+    Terms of Use
+    Cookie Preferences
+    Ad Choices

@@ -1,0 +1,23 @@
+Welcome back to this lesson on OCI Load Balancer service. Let me just quickly talk about why you would use Load Balancer. You would use Load Balancer to achieve high availability and also achieve scalability.
+
+So typically the way Load Balancer works is, they're also referred to as Reverse Proxies, you would have a Load Balancer, which would be used access by multiple clients, various clients. And these clients would hit the Load Balancer, and the Load Balancer would proxy that traffic to the various backend servers. So in this way, it not only protects the various backend servers, but also provides high availability. In case a particular backend server is not available, the application can still be up and running. And then it also provides scalability because if lots of clients start hitting the Load Balancer, you could easily add more backends or more backend servers.
+
+And there are several other advanced capabilities like SSL termination and SSL passthrough and a lot of other advanced features. We're not getting to those because it's a foundational course. But hopefully that gives you a good idea of what a Load Balancer does-- I mean, benefits of using a Load Balancer.
+
+So the first type of Load Balancer we have in OCI is a layer 7 Load Balancer. Layer 7 basically means it understands HTTP and HTTPS. That's the OSI model. And then there are various capabilities available here.
+
+So the first thing is the Load Balancer comes in two different shapes. One is called a flexible shape where you define the minimum and the maximum and you define the range. And your Load Balancer can achieve any kind of-- support any kind of traffic in that particular range, going from 10 Mbps all the way to 8 Gbps.
+
+The second kind of shape is called dynamic where you predefine the shapes. So you have micro, small, medium, large, and you predefine the shape. And you don't have to warm up your Load Balancer. If the traffic comes to that particular shape, the Load Balancer automatically scales.
+
+You can always do a public and a private Load Balancer. Public means Load Balancer is available on the web. Private means your multiple tiers, like a web tier, can talk to your database tier and balance the traffic between them, but both tiers don't have to be public.
+
+A Load Balancer is highly available, highly scalable by design, and it has lots of advanced features layer 7. Things like Content-Based Routing are supported. And there's lots of other SSL features, other capabilities, which this is being a foundational course, we're not getting into those. But has lots of rich features.
+
+The second kind of Load Balancer we have in OCI is called the Network Load Balancer. And as the name specify, Network Load Balancer operates at layer 4, layer 3, and layer 4 so it understands TCP, UDP, also supports ICMP. Again, like HTTP Load Balancer, it has both public and a private option, so you could create a public Network Load Balancer or a private Network Load Balancer. It's highly available, highly scalable, all those features are supported.
+
+Now, why would you use Network Load Balancer or a HTTP Load Balancer? The primary reason you would use it is it's much faster than HTTP Load Balancer. It has much lower latency. So if performance is a key criteria for you, go with Network Load Balancer.
+
+On the contrary, the HTTP Load Balancer has higher level intelligence because it can look at the packets, it can inspect the packets, and it gets that intelligence. So if you're looking for that kind of routing intelligence, then go with HTTP Load Balancer.
+
+So just to recap, OCI provides you both layer 3 and layer 4 Network Load Balancer as well as layer 7 HTTP Load Balancer with lots of advanced features. Thanks for watching. 
